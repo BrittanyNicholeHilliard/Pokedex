@@ -1,0 +1,1 @@
+export {default as NatureResult} from './NatureResult.js'
