@@ -18,6 +18,7 @@ function App() {
 
   useEffect(() => {
     console.log(`searchResult: ${searchResults}`)
+    console.log(`pokemonResults: ${pokemonResults}`)
   }, [])
 
 

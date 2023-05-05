@@ -14,6 +14,31 @@
     width: 20%;
 } */
 
-.badges{
-    max-width: 5vw;
+.top-left {
+    max-width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sprite-img {
+    margin: -20px;
+}
+
+.type-badges{
+    display: flex;
+
+}
+
+.badges img{
+    width: 7vw;
+   
+}
+
+div#p-r-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.base-stat-container p{
+    line-height: .1;
 }
