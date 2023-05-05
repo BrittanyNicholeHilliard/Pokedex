@@ -51,12 +51,6 @@ const TypeBadges = (props) => {
         typeArray.push(type.type.name) ))
         console.log(result, typeArray)}, [])
 
-
-          
-  
-
-
-
     return (
         <div className="type-badges">
             <div className="badges">

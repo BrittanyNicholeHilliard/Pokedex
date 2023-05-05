@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState, useEffect }from 'react';
-import {Route, Routes, Link} from 'react-router-dom';
+import {Route, Routes, Link } from 'react-router-dom';
 import logo from './assets/Pokemon-Logo-PNG.png';
 import SearchBar from './Components/SearchBar.js'
 import Intro from './Components/Intro.js';
@@ -13,6 +13,7 @@ import {PokemonResult} from './pages/PokemonResult/index.js';
 
 function App() {
   const [searchResults, setSearchResults] = useState(null)
+  const [pokemonResults, setPokemonResults] = useState(null)
   const [dropDown, setDropDown] = useState(null);
 
   useEffect(() => {
@@ -32,7 +33,7 @@ function App() {
           <h4>Gotta catch them all!</h4>
         </div>
         <div className="header-searchBar">
-        <SearchBar setSearchResults={setSearchResults} setDropDown={setDropDown} dropDown={dropDown}/>
+        <SearchBar setSearchResults={setSearchResults} setPokemonResults={setPokemonResults} setDropDown={setDropDown} dropDown={dropDown}/>
         </div>
       </header>
 
@@ -42,7 +43,7 @@ function App() {
         Each correlates to an option in the searchbar component dropdown menu */}
         <Route path="/ability-result" element={<AbilityResult result={searchResults} />}/>
         <Route path="/type-result" element={<TypeResult result={searchResults}/>} />
-        <Route path='/pokemon-result/' element={<PokemonResult result={searchResults}/>} />      
+        <Route path='/pokemon-result/' element={<PokemonResult result={searchResults} pokemonResults={pokemonResults}/>} />      
         <Route path="/location-result" />
         <Route path="/egg-group-result" />
         <Route path="/nature-result" />

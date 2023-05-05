@@ -12,7 +12,7 @@ proper response. Upon response, the user is redirected to the results page.
 
 const SearchByNameNum = (props) => {
 
-const {setSearchResults, dropDown, setDropDown} = props;
+const {setSearchResults, setPokemonResults, dropDown, setDropDown} = props;
 
 const [searchValue, setSearchValue] = useState('');
 const navigate = useNavigate();
@@ -33,6 +33,14 @@ const handleChange = evt => {
 
 const onSubmit = (evt) => {
     evt.preventDefault();
+    if (dropDown ==="pokemon") {
+        axios.get(`https://pokeapi.co/api/v2/${dropDown}-species/${searchValue}`)
+        .then((res)=> {
+            setPokemonResults(res);
+        }).catch((err) => {
+            console.log('no results')
+        })
+    }
     axios.get(`https://pokeapi.co/api/v2/${dropDown}/${searchValue}/`)
     .then((res) => {
         console.log(res.data)

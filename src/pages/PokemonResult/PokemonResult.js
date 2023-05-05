@@ -1,12 +1,11 @@
-import React, {useEffect} from "react";
+import React from "react";
 import '../pages.css';
 import TypeBadges from "../../Components/TypeBadges.js";
-
+import MovesList from '../../Components/MoveList.js';
 
 const PokemonResult = (props) => {
 
-
-const {result} = props;
+const {result, pokemonResults} = props;
 
 const pokeName = result.name.charAt(0).toUpperCase() + result.name.slice(1);
 
@@ -19,8 +18,16 @@ return (
     <h2>{!result ? null: pokeName}</h2>
     <hr color="#337AB7" size="3" width="100%"/>
   </div>  
+  <div className="sprite-container">
+    <p>Default Game Sprites:</p>
+      <img className="sprite-img" src={result.sprites.front_default} alt='in-game front view'/>
+      <img className="sprite-img" src={result.sprites.back_default} alt='in-game back view'/>
+   <p>Shiny Game Sprites</p>
+   <img className="sprite-img" src={result.sprites.front_shiny} alt="in-game shiny sprite front view"/>
+   <img className="sprite-img" src={result.sprites.back_shiny} alt="in-game shiny sprite back view"/>
+  </div>
   <div className="type-container">
-    <h4>Type:</h4>
+    <h4>Typing:</h4>
     <TypeBadges result={result} />
   </div>
   </div>
@@ -42,7 +49,9 @@ return (
    <img className="sprite-img" src={result.sprites.back_shiny} alt="in-game shiny sprite back view"/>
   </div>
 
-<div className="move-list-container">
+
+<MovesList result={result} />
+{/* <div className="move-list-container">
   {result.moves.map((move, idx) => (
     <div className="move-list" key={idx}>
       <details><summary><h4>{move.move.name}</h4></summary>
@@ -56,7 +65,7 @@ return (
     </div>
   ))}
 
-</div>
+</div> */}
     
 
 
