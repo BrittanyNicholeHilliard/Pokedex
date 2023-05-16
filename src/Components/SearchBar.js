@@ -36,7 +36,8 @@ const onSubmit = (evt) => {
     if (dropDown ==="pokemon") {
         axios.get(`https://pokeapi.co/api/v2/${dropDown}-species/${searchValue}`)
         .then((res)=> {
-            setPokemonResults(res);
+            setPokemonResults(res.data)
+            console.log(res.data);
         }).catch((err) => {
             console.log('no results')
         })
