@@ -17,11 +17,12 @@ console.log(`pokemonResults: ${pokemonResults.flavor_text_entries[0]}`)
 return (
 <div id="p-r-container" className="result-container">
 
-
+<h2>{pokeName}</h2>
 <div className="top-section">
+  
   <div className="top-left-section">
     <div className="name-container">
-        <h2>{pokeName}</h2>
+        
         <hr color="#337AB7" size="3" width="100%"/>
     </div>  
     <div className="sprite-container">
@@ -36,15 +37,16 @@ return (
         <h4>Typing:</h4>
         <TypeBadges result={result} />
     </div>
-    <div className="height-weight-container">
-      <h6>Height:</h6>
-      <p>{result.height}</p>
-      <h6>Weight:</h6>
-      <p>{result.weight}</p>
-    </div>
   </div>  
   <div className="top-right-section">
+  <div className="height-weight-container">
+      <h6>Height:</h6>
+      <p>{result.height}dm</p>
+      <h6>Weight:</h6>
+      <p>{result.weight / 10}kg</p>
+    </div>
     <div className="base-stat-container">
+      <h4>Base Stats:</h4>
       {result.stats.map((statistic, idx ) => ( 
       <div className="statList" key={idx}>
         <p className="stat-p">{statistic.stat.name} - Base: {statistic.base_stat}</p>

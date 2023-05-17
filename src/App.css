@@ -8,7 +8,7 @@ div {
 
 /*<--Main Header */
 .App-header {
-  background-color: #00235B;
+  background-color: rgb(44,110,73);
   width: 75vw;
   display: flex;
   justify-content: center;
@@ -50,7 +50,7 @@ div {
 .intro-container {
   margin-top: 5px;
   max-width: 75vw;
-  background-color: #FFF4E0;
+  background-color: rgb(254,254,227);
   border-radius: 10px;  
   display: flex;
   flex-direction: column;
