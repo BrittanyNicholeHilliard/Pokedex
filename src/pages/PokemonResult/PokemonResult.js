@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import '../pages.css';
 import TypeBadges from "../../Components/TypeBadges.js";
 import MovesList from '../../Components/MoveList.js';
-
+import ball from '../../assets/pb2.png'
 const PokemonResult = (props) => {
 
 const {result, pokemonResults} = props;
@@ -15,9 +15,18 @@ console.log(`pokemonResults: ${pokemonResults.flavor_text_entries[0]}`)
 
 
 return (
-<div id="p-r-container" className="result-container">
 
-<h2>{pokeName}</h2>
+<div id="p-r-container" className="result-container">
+<div id="top-middle"><h2>{pokeName}</h2></div>
+<div id="top-bottom">
+  <div className="prev-in-dex">
+  {pokemonResults.id > 1 ? 
+  <div classname="prevButton">
+  <div><img id="prevButton" src={ball} alt="pokeball-icon"/></div>
+  <div><p>«</p></div>
+  </div>
+  : null}
+</div>
 <div className="top-section">
   
   <div className="top-left-section">
@@ -53,23 +62,24 @@ return (
       </div>))}
     </div>
   </div>
-
-
-    
 </div>
-  
-  <div className="flavor-text">
-   
-
+<div className="next-in-dex">
+  {pokemonResults.id > 1 ? 
+  <div classname="nextButton">
+  <div><img id="nextButton" src={ball} alt="pokeball-icon"/></div>
+  <div><p>»</p></div>
   </div>
+  : null}
+</div>
+</div>
+  
+ 
   
   
-  {/* 
-<MovesList result={result} /> */}
+<MovesList result={result} />
 
 </div>
-)
 
-}
+)}
 
 export default PokemonResult;
