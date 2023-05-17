@@ -1,5 +1,5 @@
 import React from "react"; 
-
+import '../pages/pages.css';
 
 
 const MoveList = (props) => {
@@ -18,7 +18,6 @@ const {result} = props;
                 <p key={idx}>{version.version_group.name}</p>
                 <h5>Learn Method</h5>
                 <p key={idx.idx}>{version.move_learn_method.name}</p>
-                
                 </>
             ))}</details>
             </div>
@@ -28,6 +27,7 @@ const {result} = props;
     );
 }
 
+// const pokeName = result.name.charAt(0).toUpperCase() + result.name.slice(1);
 
 
 export default MoveList;
