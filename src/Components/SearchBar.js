@@ -15,6 +15,7 @@ const SearchByNameNum = (props) => {
 const {setSearchResults, setPokemonResults, dropDown, setDropDown} = props;
 
 const [searchValue, setSearchValue] = useState('');
+const [error, setError] = useState(null)
 const navigate = useNavigate();
 
 
@@ -32,7 +33,14 @@ const handleChange = evt => {
 }
 
 const onSubmit = (evt) => {
-    evt.preventDefault();
+    if (searchValue === null) {
+        setError("Please enter a query")
+    }
+    if (dropDown === null) {
+        setError("Please choose a query type")
+        evt.preventDefault();
+    } else {
+        evt.preventDefault();
     if (dropDown ==="pokemon") {
         axios.get(`https://pokeapi.co/api/v2/${dropDown}-species/${searchValue}`)
         .then((res)=> {
@@ -50,6 +58,7 @@ const onSubmit = (evt) => {
     }).catch((err) => {
         console.log('no results')
     })
+    }
 }
 
 
@@ -73,9 +82,10 @@ return (
             <br/>
             <button id="searchSubmit" type="submit">Search</button>
         </form>
+        {!error ? null : <div className="searchError">
+        <p>{error}</p>
+        </div>}
 
-
-        
         </div>
 
     </div>

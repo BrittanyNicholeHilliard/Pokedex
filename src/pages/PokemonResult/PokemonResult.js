@@ -21,7 +21,7 @@ return (
 <div className="top-section">
   <div className="top-left-section">
     <div className="name-container">
-        <h2>{!result ? null: pokeName}</h2>
+        <h2>{pokeName}</h2>
         <hr color="#337AB7" size="3" width="100%"/>
     </div>  
     <div className="sprite-container">
