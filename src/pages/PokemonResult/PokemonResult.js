@@ -75,8 +75,8 @@ return (
   
  
   
-  
-<MovesList result={result} />
+{/*   
+<MovesList result={result} /> */}
 
 </div>
 
