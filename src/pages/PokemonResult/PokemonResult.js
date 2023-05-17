@@ -72,11 +72,11 @@ return (
   : null}
 </div>
 </div>
+    
   
- 
-  
-{/*   
-<MovesList result={result} /> */}
+<MovesList result={result} />
+
+
 
 </div>
 
